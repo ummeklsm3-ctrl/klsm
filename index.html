@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Happy Birthday ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: Arial;
+      text-align: center;
+      color: white;
+      background: linear-gradient(to right, #ff758c, #ff7eb3);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 36px;
+    }
+
+    #message {
+      font-size: 20px;
+      margin: 20px;
+      min-height: 40px;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+    }
+
+    img {
+      width: 250px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin: 10px;
+      box-shadow: 0 0 15px white;
+    }
+
+    video {
+      width: 90%;
+      border-radius: 15px;
+      margin-top: 20px;
+      box-shadow: 0 0 20px white;
+    }
+
+    .heart {
+      position: absolute;
+      color: pink;
+      font-size: 20px;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      background: white;
+      color: #ff4f7b;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday My Love ❤️</h1>
+
+<div id="message"></div>
+
+<button onclick="startMusic()">Tap to Start Surprise 💖</button>
+
+<div class="container">
+  <img src="C:\Users\MD Rehan\Downloads\aqb1.jpeg">
+  <img src="C:\Users\MD Rehan\Downloads\aqb2.jpeg">
+  <img src="C:\Users\MD Rehan\Downloads\aqb3.jpeg">
+</div>
+
+<video controls>
+  <source src="C:\Users\MD Rehan\Downloads\aqbklsm.mp4" type="video/mp4">
+</video>
+
+<audio id="music" loop>
+  <source src="C:\Users\MD Rehan\Downloads\tumtak.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  // typing effect
+  const text = "You are my happiness, my safe place, my everything 💖 Happy Birthday My Love 🎂";
+  let i = 0;
+  function typing() {
+    if (i < text.length) {
+      document.getElementById("message").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typing, 50);
+    }
+  }
+  typing();
+
+  // start music (on click)
+  function startMusic() {
+    document.getElementById("music").play();
+  }
+
+  // floating hearts
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (10 + Math.random() * 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 5000);
+  }
+  setInterval(createHeart, 300);
+</script>
+
+</body>
+</html>
